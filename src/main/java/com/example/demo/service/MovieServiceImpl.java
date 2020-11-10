@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.Movie;
+import com.example.demo.dto.movie.Movie;
 import com.example.demo.repository.MovieRepository;
 import com.example.demo.service.impl.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;

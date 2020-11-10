@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dto.Movie;
+import com.example.demo.dto.movie.Movie;
 
 import java.util.List;
 
