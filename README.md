@@ -5,7 +5,10 @@ Port : 8081                     <br/>
 DB : h2                         <br/>
 DB_user : test                  <br/>
 DB_password : 1234              <br/>
-<br/>
+                                <br/>
+                                <br/>
+네이버 영화를 참고하여 엔티티를 작성하였으며, <br/>
+
 
 ### 초기화 /빌드 / 테스트
 

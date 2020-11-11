@@ -21,11 +21,11 @@ public class Actor {
 
     private String name;
 
-    private LocalDate dateOfBirth;
+    private LocalDate dateOfBirth;  //생년월일
 
-    private Integer height;
+    private Integer height;         //키
 
-    private Integer weight;
+    private Integer weight;         //몸무게
 
 
 }

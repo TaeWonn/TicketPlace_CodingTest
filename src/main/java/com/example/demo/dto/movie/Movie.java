@@ -1,6 +1,7 @@
 package com.example.demo.dto.movie;
 
-import com.example.demo.dto.common.BaseEnumCode;
+import com.example.demo.conf.converter.movie.GenderConverter;
+import com.example.demo.conf.converter.movie.RankConverter;
 import com.example.demo.dto.movie.enums.Gender;
 import com.example.demo.dto.movie.enums.Rank;
 import lombok.AllArgsConstructor;
@@ -37,10 +38,10 @@ public class Movie {
 
     private Integer cumulativeAudience;     //누적 관객
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = RankConverter.class)
     private Rank Rank;                      //관람 연령제한
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = GenderConverter.class)
     private Gender gender;                  // 성별
 
     @OneToOne

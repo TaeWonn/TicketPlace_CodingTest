@@ -1,5 +1,7 @@
 package com.example.demo.dto.movie;
 
+
+import com.example.demo.conf.converter.movie.UserTypeConverter;
 import com.example.demo.dto.movie.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +27,7 @@ public class Grade {
 
     private Integer scope;
 
+    @Convert(converter = UserTypeConverter.class)
     private UserType userType;
 }
 

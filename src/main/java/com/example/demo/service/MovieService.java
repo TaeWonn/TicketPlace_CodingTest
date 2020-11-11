@@ -1,4 +1,4 @@
-package com.example.demo.service.impl;
+package com.example.demo.service;
 
 import com.example.demo.dto.movie.Movie;
 
@@ -10,4 +10,8 @@ public interface MovieService {
     List<Movie> findList();
 
     Movie findById(Long id);
+
+    void save(Movie movie);
+
+    void deleteById(Long id);
 }

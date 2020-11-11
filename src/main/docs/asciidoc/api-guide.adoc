@@ -1,0 +1,41 @@
+ifndef::snippets[]
+:snippets: ../../../target/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+
+
+== Request
+
+=== [Request URL]
+....
+GET /
+Content-Type: application/json;charset=UTF-8
+....
+
+=== [Request Headers]
+include::{snippets}/index/request-headers.adoc[]
+
+=== [Request Path Parameters]
+
+include::{snippets}/index/request-body.adoc[]
+
+=== [Request HTTP Example]
+
+include::{snippets}/index/http-request.adoc[]
+
+== Response
+
+
+=== [Response Fields]
+
+include::{snippets}/index/response-fields.adoc[]
+
+=== [Response HTTP Example]
+
+include::{snippets}/index/http-response.adoc[]
