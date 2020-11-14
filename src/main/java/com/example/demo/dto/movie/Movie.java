@@ -39,10 +39,7 @@ public class Movie {
     private Integer cumulativeAudience;     //누적 관객
 
     @Convert(converter = RankConverter.class)
-    private Rank Rank;                      //관람 연령제한
-
-    @Convert(converter = GenderConverter.class)
-    private Gender gender;                  // 성별
+    private Rank rank;                      //관람 연령제한
 
     @OneToOne
     private Country country;                //국가

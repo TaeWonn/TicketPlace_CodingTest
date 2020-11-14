@@ -11,7 +11,9 @@ public interface MovieService {
 
     Movie findById(Long id);
 
-    void save(Movie movie);
+    Long save(Movie movie);
 
     void deleteById(Long id);
+
+    Long saveAndFlush(Movie movie);
 }

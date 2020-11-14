@@ -84,11 +84,11 @@
 						<configuration>
 							<backend>html</backend>
 							<doctype>book</doctype>
-<!--							<attributes>-->
-<!--								<snippets>${snippetsDirectory}</snippets>-->
-<!--							</attributes>-->
-<!--							<sourceDirectory>src/main/docs/asciidoc</sourceDirectory>-->
-<!--							<outputDirectory>target/generated-docs</outputDirectory>-->
+							<attributes>
+								<snippets>${snippetsDirectory}</snippets>
+							</attributes>
+							<sourceDirectory>src/main/docs/asciidoc</sourceDirectory>
+							<outputDirectory>target/generated-docs</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>

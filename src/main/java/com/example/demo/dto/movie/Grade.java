@@ -1,7 +1,9 @@
 package com.example.demo.dto.movie;
 
 
+import com.example.demo.conf.converter.movie.GenderConverter;
 import com.example.demo.conf.converter.movie.UserTypeConverter;
+import com.example.demo.dto.movie.enums.Gender;
 import com.example.demo.dto.movie.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,5 +31,8 @@ public class Grade {
 
     @Convert(converter = UserTypeConverter.class)
     private UserType userType;
+
+    @Convert(converter = GenderConverter.class)
+    private Gender gender;                  // 성별
 }
 
