@@ -119,9 +119,9 @@ class MovieControllerTest{
     @Test
     void putMovie() throws Exception {
         Movie movie = new Movie();
-        movie.setTitle("" + i);
-        movie.setDirector("" + i);
-        movie.setRunningTime(i);
+        movie.setTitle("" + 1);
+        movie.setDirector("" + 1);
+        movie.setRunningTime(1);
         movie.setOpenDate(LocalDate.now());
         mockMvc.perform(post("/movie")
                 .content(obj.writeValueAsString(movie))
