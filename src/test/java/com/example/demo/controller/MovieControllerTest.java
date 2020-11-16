@@ -118,19 +118,17 @@ class MovieControllerTest{
 
     @Test
     void putMovie() throws Exception {
-        for(int i=0;i<100;i++) {
-            Movie movie = new Movie();
-            movie.setTitle("" + i);
-            movie.setDirector("" + i);
-            movie.setRunningTime(i);
-            movie.setOpenDate(LocalDate.now());
-            mockMvc.perform(post("/movie")
-                    .content(obj.writeValueAsString(movie))
-                    .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                    .andDo(print());
-        }
+        Movie movie = new Movie();
+        movie.setTitle("" + i);
+        movie.setDirector("" + i);
+        movie.setRunningTime(i);
+        movie.setOpenDate(LocalDate.now());
+        mockMvc.perform(post("/movie")
+                .content(obj.writeValueAsString(movie))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andDo(print());
     }
 
     @Test
