@@ -47,7 +47,7 @@ class MovieControllerTest{
     private MockMvc mockMvc;
 
     @MockBean
-    private MovieServiceImpl movieService;
+    private MovieService movieService;
 
     @MockBean
     private MovieRepository movieRepository;
@@ -90,30 +90,55 @@ class MovieControllerTest{
 
     @Test
     void findMovie() throws Exception {
-        dataTest();
-
-        MultiValueMap<String, String> info = new LinkedMultiValueMap<>();
+        //MultiValueMap<String, String> info = new LinkedMultiValueMap<>();
         mockMvc.perform(get("/movie"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andDo(document("/movie",
                         responseFields(
-                                fieldWithPath("movie[].id")                 .description("pk"),
-                                fieldWithPath("movie[].title")              .description("제목"),
-                                fieldWithPath("movie[].runningTime")        .description("상영시간"),
-                                fieldWithPath("movie[].openDate")           .description("방영일"),
-                                fieldWithPath("movie[].distributor")        .description("배급사"),
-                                fieldWithPath("movie[].description")        .description("설명"),
-                                fieldWithPath("movie[].cumulativeAudience") .description("누적 관객"),
-                                fieldWithPath("movie[].rank")               .description("관람연령제한"),
-                                fieldWithPath("movie[].category")           .description("카테고리")
+                                fieldWithPath("[].id")                 .description("pk"),
+                                fieldWithPath("[].title")              .description("제목"),
+                                fieldWithPath("[].runningTime")        .description("상영시간"),
+                                fieldWithPath("[].openDate")           .description("방영일"),
+                                fieldWithPath("[].distributor")        .description("배급사"),
+                                fieldWithPath("[].description")        .description("설명"),
+                                fieldWithPath("[].cumulativeAudience") .description("누적 관객"),
+                                fieldWithPath("[].rank")               .description("관람연령제한"),
+                                fieldWithPath("[].category")           .description("카테고리"),
+                                fieldWithPath("[].director")           .description("감독"),
+                                fieldWithPath("[].country")            .description("국가"),
+                                fieldWithPath("[].actors")             .description("배우"),
+                                fieldWithPath("[].grades")             .description("등급")
                         ))
                 );
     }
 
     @Test
-    void findById() {
+    void findById() throws Exception {
+        mockMvc.perform(get("/move/{movie_id}",1)
+                        .contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(status().isOk())
+                        .andDo(print())
+                        .andDo(document("/movie/{movie_id}",
+                                requestFields(
+                                        fieldWithPath("movie_id").description("영화 PK")
+                                ),
+                                responseFields(
+                                        fieldWithPath("id")                 .description("pk"),
+                                        fieldWithPath("title")              .description("제목"),
+                                        fieldWithPath("runningTime")        .description("상영시간"),
+                                        fieldWithPath("openDate")           .description("방영일"),
+                                        fieldWithPath("distributor")        .description("배급사"),
+                                        fieldWithPath("description")        .description("설명"),
+                                        fieldWithPath("cumulativeAudience") .description("누적 관객"),
+                                        fieldWithPath("rank")               .description("관람연령제한"),
+                                        fieldWithPath("category")           .description("카테고리"),
+                                        fieldWithPath("director")           .description("감독"),
+                                        fieldWithPath("country")            .description("국가"),
+                                        fieldWithPath("actors")             .description("배우"),
+                                        fieldWithPath("grades")             .description("등급")
+                                )));
     }
 
     @Test
@@ -128,7 +153,23 @@ class MovieControllerTest{
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andDo(print());
+                .andDo(print())
+                .andDo(document("/movie",
+                        requestFields(
+                                fieldWithPath("id").description("아이디"),
+                                fieldWithPath("title").description("제목"),
+                                fieldWithPath("director").description("감독"),
+                                fieldWithPath("runningTime").description("상영시간"),
+                                fieldWithPath("openDate").description("개봉일"),
+                                fieldWithPath("distributor").description("배급사"),
+                                fieldWithPath("description").description("설명"),
+                                fieldWithPath("cumulativeAudience").description("누적관객"),
+                                fieldWithPath("rank").description("관람 연령제한"),
+                                fieldWithPath("country").description("국가"),
+                                fieldWithPath("actors").description("배우"),
+                                fieldWithPath("category").description("장르"),
+                                fieldWithPath("grades").description("평점")
+                        )));
     }
 
     @Test
@@ -139,15 +180,4 @@ class MovieControllerTest{
     void deleteMovie() {
     }
 
-    public void dataTest() {
-        for(int i=0;i<100;i++){
-            Movie movie = new Movie();
-            movie.setTitle(""+i);
-            movie.setDirector(""+i);
-            movie.setRunningTime(i);
-            movie.setOpenDate(LocalDate.now());
-            movieService.saveAndFlush(movie);
-            System.out.println("movie = " + movie.toString());
-        }
-    }
 }

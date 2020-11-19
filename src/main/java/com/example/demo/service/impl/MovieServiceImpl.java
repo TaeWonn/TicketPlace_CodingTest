@@ -36,8 +36,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Long saveAndFlush(Movie movie){
-        movieRepository.saveAndFlush(movie);
-        System.out.println("title : "+movie.getTitle());
+        Movie m = movieRepository.saveAndFlush(movie);
+        System.out.println("service title : "+m.getTitle());
         return movie.getId();
     }
 
