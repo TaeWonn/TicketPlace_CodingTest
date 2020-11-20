@@ -35,10 +35,25 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public Long saveAndFlush(Movie movie){
+    public Long saveAndFlush(Movie movie) throws Exception {
         Movie m = movieRepository.saveAndFlush(movie);
         System.out.println("service title : "+m.getTitle());
         return movie.getId();
+    }
+
+    @Override
+    public void update(Movie movie) throws Exception{
+        Movie find = movieRepository.findById(movie.getId()).orElseThrow();
+        find.setTitle(movie.getTitle());
+        find.setDirector(movie.getDirector());
+        find.setRunningTime(movie.getRunningTime());
+        find.setOpenDate(movie.getOpenDate());
+        find.setDistributor(movie.getDistributor());
+        find.setDescription(movie.getDescription());
+        find.setCumulativeAudience(movie.getCumulativeAudience());
+        find.setRank(movie.getRank());
+        find.setCountry(movie.getCountry());
+        find.setCategory(movie.getCategory());
     }
 
     @Override

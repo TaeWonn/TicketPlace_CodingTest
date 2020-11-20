@@ -8,34 +8,151 @@ endif::[]
 :toclevels: 4
 :sectlinks:
 
+//============================================================================
 
+== Movie API
 
-== Request
+=== 영화 전체 검색
 
-=== [Request URL]
+==== [Request URL]
 ....
-GET /
+GET /movie
 Content-Type: application/json;charset=UTF-8
 ....
 
-=== [Request Headers]
-include::{snippets}/index/request-headers.adoc[]
-
-=== [Request Path Parameters]
-
-include::{snippets}/index/request-body.adoc[]
-
-=== [Request HTTP Example]
-
-include::{snippets}/index/http-request.adoc[]
-
-== Response
+==== [Request HTTP Example]
+....
+include::{snippets}/movie-controller-test/find-movie/http-request.adoc[]
+....
 
 
-=== [Response Fields]
+==== Response
 
-include::{snippets}/index/response-fields.adoc[]
 
-=== [Response HTTP Example]
+==== [Response Fields]
+....
+include::{snippets}/movie-controller-test/find-movie/response-body.adoc[]
+....
+==== [Response HTTP Example]
+....
+include::{snippets}/movie-controller-test/find-movie/http-response.adoc[]
+....
 
-include::{snippets}/index/http-response.adoc[]
+
+//============================================================================
+
+=== 영화 PK 검색
+
+==== [Request URL]
+....
+GET /movie/{movie_id}
+Content-Type: application/json;charset=UTF-8
+....
+
+==== [Request HTTP Example]
+....
+include::{snippets}/movie-controller-test/find-by-id/request-body.adoc[]
+....
+
+
+==== Response
+
+
+==== [Response Fields]
+....
+include::{snippets}/movie-controller-test/find-by-id/response-body.adoc[]
+....
+==== [Response HTTP Example]
+....
+include::{snippets}/movie-controller-test/find-by-id/http-response.adoc[]
+....
+
+
+//============================================================================
+
+=== 영화 저장
+
+==== [Request URL]
+....
+POST /movie
+Content-Type: application/json;charset=UTF-8
+....
+
+==== [Request HTTP Example]
+....
+include::{snippets}/movie-controller-test/put-movie/http-request.adoc[]
+....
+
+
+==== Response
+
+
+==== [Response Fields]
+....
+include::{snippets}/movie-controller-test/put-movie/response-body.adoc[]
+....
+==== [Response HTTP Example]
+....
+include::{snippets}/movie-controller-test/put-movie/http-response.adoc[]
+....
+
+//============================================================================
+
+=== 영화 수정
+
+==== [Request URL]
+....
+PUT /movie
+Content-Type: application/json;charset=UTF-8
+....
+
+==== [Request HTTP Example]
+....
+include::{snippets}/movie-controller-test/update-movie/http-request.adoc[]
+....
+
+
+==== Response
+
+
+==== [Response Fields]
+....
+include::{snippets}/movie-controller-test/update-movie/response-body.adoc[]
+....
+==== [Response HTTP Example]
+....
+include::{snippets}/movie-controller-test/update-movie/http-response.adoc[]
+....
+
+//============================================================================
+
+
+=== 영화 삭제
+
+==== [Request URL]
+....
+DELETE /movie
+Content-Type: application/json;charset=UTF-8
+....
+
+==== [Request HTTP Example]
+....
+include::{snippets}/movie-controller-test/delete-movie/http-request.adoc[]
+....
+
+
+==== Response
+
+
+==== [Response Fields]
+....
+include::{snippets}/movie-controller-test/delete-movie/response-body.adoc[]
+....
+==== [Response HTTP Example]
+....
+include::{snippets}/movie-controller-test/delete-movie/http-response.adoc[]
+....
+
+//============================================================================
+
+

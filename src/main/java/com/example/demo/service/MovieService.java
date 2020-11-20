@@ -13,7 +13,9 @@ public interface MovieService {
 
     Long save(Movie movie);
 
-    void deleteById(Long id);
+    void deleteById(Long id) throws Exception;
 
-    Long saveAndFlush(Movie movie);
+    Long saveAndFlush(Movie movie) throws Exception;
+
+    void update(Movie movie) throws Exception;
 }
